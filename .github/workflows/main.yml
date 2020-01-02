@@ -5,13 +5,17 @@ on: [push, pull_request]
 jobs:
   runner:
     runs-on: ubuntu-latest
-    container: mathleite/php-composer:1.0
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Install Dependencies
-        run: composer install
+      - name: Run Container
+        uses: ./.github/actions/composer
 
-      - name: Run Tests
-        run: composer run-script test
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: mathleite/php-composer
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          dockerfile: Dockerfile
