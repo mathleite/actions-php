@@ -5,12 +5,19 @@ on: [push, pull_request]
 jobs:
   runner:
     runs-on: ubuntu-latest
+    container: mathleite/php-composer
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Run Container
-        uses: ./.github/actions/composer
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Run Test
+        run: composer run-script test
+
+#      - name: Run Container
+#        uses: ./.github/actions/composer
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
