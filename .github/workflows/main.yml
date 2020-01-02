@@ -5,13 +5,10 @@ on: [push, pull_request]
 jobs:
   runner:
     runs-on: ubuntu-latest
-    container: mathleite/php-composer:latest
+#    container: mathleite/php-composer:1.0
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
-      - name: Echo path
-        run: pwd
 
       - name: Install Dependencies
         run: composer install
