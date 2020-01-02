@@ -1,0 +1,20 @@
+name: PHP 7.4 Test Runner
+
+on: [push, pull_request]
+
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    container: mathleite/php-composer:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Echo path
+        run: pwd
+
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Run Tests
+        run: composer run-script test

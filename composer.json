@@ -1,0 +1,22 @@
+{
+    "name": "matheus.leite/actions-php",
+    "license": "GPL-3.0",
+    "require-dev": {
+        "phpunit/phpunit": "8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Test\\": "test"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matheus Leite",
+            "email": "matheus.leite.san@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit test"
+    }
+}
