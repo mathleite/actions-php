@@ -16,9 +16,6 @@ jobs:
       - name: Run Test
         run: composer run-script test
 
-#      - name: Run Container
-#        uses: ./.github/actions/composer
-
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:

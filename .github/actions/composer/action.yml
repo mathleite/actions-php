@@ -1,5 +1,0 @@
-name: 'Composer Runner'
-description: 'Install composer dependencies and run PHPUnit Test'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
